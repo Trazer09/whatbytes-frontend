@@ -6,6 +6,9 @@ import { products } from '@/app/data/products';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { useCart } from '@/app/context/CartContext'; // Import our custom hook
+import ProductDetails from './ProductDetails'; // Import our new client component
+
+
 
 // The generateStaticParams function can be removed or left as is.
 // Since we are making the page a client component, Next.js will handle it.
@@ -21,6 +24,8 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
   if (!product) {
     notFound();
   }
+
+  
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
