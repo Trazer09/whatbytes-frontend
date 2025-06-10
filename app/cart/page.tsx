@@ -1,7 +1,7 @@
 // app/cart/page.tsx
 "use client";
 
-import { useCart, CartItem } from "@/app/context/CartContext";
+import { useCart } from "@/app/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import { Trash2 } from "lucide-react";
@@ -16,7 +16,7 @@ export default function CartPage() {
     return (
       <div className="text-center py-20">
         <h1 className="text-4xl font-bold mb-4">Your Cart is Empty</h1>
-        <p className="text-gray-600 mb-8">Looks like you haven't added anything to your cart yet.</p>
+        <p className="text-gray-600 mb-8">Looks like you haven not added anything to your cart yet.</p>
         <Link href="/" className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700">
             Start Shopping
         </Link>
