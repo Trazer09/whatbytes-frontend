@@ -25,7 +25,7 @@ export default function Sidebar({ selectedCategory, priceLimit }: SidebarProps) 
   };
 
   return (
-    <aside className="w-full md:w-1/4 bg-blue-600 text-white p-6 rounded-lg self-start">
+    <aside className="w-full md:w-1/4 bg-[#0858A8] text-white p-6 rounded-lg self-start">
       <h2 className="text-2xl font-bold mb-6">Filters</h2>
 
       {/* Category Filter */}

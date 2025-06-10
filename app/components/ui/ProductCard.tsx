@@ -27,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div>
           <p className="text-2xl font-bold text-gray-900 mt-2">${product.price}</p>
           {/* Made button font semibold and increased padding */}
-<button className="mt-4 w-full bg-blue-600 text-white py-2.5 px-4 rounded-md hover:bg-blue-700 transition-colors font-semibold text-base">
+<button className="mt-4 w-full bg-[#0858A8] text-white py-2.5 px-4 rounded-md hover:bg-blue-700 transition-colors font-semibold text-base">
 
             Add to Cart
           </button>
