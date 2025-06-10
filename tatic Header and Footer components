@@ -1,0 +1,11 @@
+[33mcommit debdc05031f0b7b959da137dc52d161988692c07[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Sidhant Kumar <84363346+Trazer09@users.noreply.github.com>
+Date:   Tue Jun 10 13:13:26 2025 +0530
+
+    Initial commit: Setup Next.js with Tailwind CSS
+
+[33mcommit d74502699cc7d859ac5f65d888cc97fbab4d7f8a[m
+Author: Sidhant Kumar <84363346+Trazer09@users.noreply.github.com>
+Date:   Tue Jun 10 13:11:34 2025 +0530
+
+    Initial commit from Create Next App
