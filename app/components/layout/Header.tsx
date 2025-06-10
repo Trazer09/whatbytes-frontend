@@ -1,48 +1,71 @@
-// app/components/layout/Header.tsx
 "use client";
 
-import { Search, ShoppingCart } from 'lucide-react';
-import React from 'react';
-import Link from 'next/link'; // Import Link
+import { Search, ShoppingCart, User } from 'lucide-react'; // Import the User icon
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { useCart } from '@/app/context/CartContext';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Header() {
   const { cartCount } = useCart();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const defaultSearch = searchParams.get('search') || '';
+  
+  const [searchTerm, setSearchTerm] = useState(defaultSearch);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const params = new URLSearchParams(searchParams.toString());
+    if (searchTerm) {
+      params.set('search', searchTerm);
+    } else {
+      params.delete('search');
+    }
+    router.push(`/?${params.toString()}`);
+  };
 
   return (
-    // Ensure header is white and has a shadow
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-800">Logo</h1>
+        <Link href="/" className="text-2xl font-bold text-gray-800">Logo</Link>
         
-        {/* Search Bar - let's ensure it's styled correctly */}
-        <div className="relative flex-grow max-w-xl mx-8">
+        <form onSubmit={handleSubmit} className="relative flex-grow max-w-xl mx-8">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-gray-400" />
           </div>
           <input
             type="text"
             placeholder="Search for products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+        </form>
+
+        {/* --- Group Cart and Profile Icon Together --- */}
+        <div className="flex items-center gap-4">
+          <Link href="/cart">
+            <div className="relative flex items-center">
+                <button className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 font-semibold">
+                  <ShoppingCart className="h-5 w-5" />
+                  <span>Cart</span>
+                </button>
+                {cartCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+            </div>
+          </Link>
+          
+          {/* --- Added Profile Icon --- */}
+          <button className="p-2 rounded-full hover:bg-gray-100">
+            <User className="h-6 w-6 text-gray-600" />
+          </button>
         </div>
+        {/* ------------------------------------------- */}
 
-        {/* Cart Button with Link */}
-        <Link href="/cart">
-          <div className="relative flex items-center">
-              {/* Increased horizontal padding (px-6) */}
-              <button className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 font-semibold">
-                <ShoppingCart className="h-5 w-5" />
-                <span>Cart</span>
-              </button>
-
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-          </div>
-        </Link>
       </div>
     </header>
   );

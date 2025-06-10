@@ -1,23 +1,31 @@
-// app/components/layout/Sidebar.tsx
+"use client"; // The sidebar now needs client-side interactivity to change the URL
+
+import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 
+// The Sidebar no longer needs setter functions, just the current values
 interface SidebarProps {
   selectedCategory: string;
-  setSelectedCategory: (category: string) => void;
   priceLimit: number;
-  setPriceLimit: (price: number) => void;
 }
 
 const categories = ['All', 'Electronics', 'Clothing', 'Home'];
 
-export default function Sidebar({
-  selectedCategory,
-  setSelectedCategory,
-  priceLimit,
-  setPriceLimit
-}: SidebarProps) {
+export default function Sidebar({ selectedCategory, priceLimit }: SidebarProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const handleFilterChange = (name: string, value: string) => {
+    // Create a new URLSearchParams object from the current URL
+    const params = new URLSearchParams(searchParams.toString());
+    // Set the new parameter
+    params.set(name, value);
+    // Push the new URL to the router
+    router.push(`/?${params.toString()}`);
+  };
+
   return (
-    <aside className="w-1/4 bg-blue-600 text-white p-6 rounded-lg self-start">
+    <aside className="w-full md:w-1/4 bg-blue-600 text-white p-6 rounded-lg self-start">
       <h2 className="text-2xl font-bold mb-6">Filters</h2>
 
       {/* Category Filter */}
@@ -25,13 +33,15 @@ export default function Sidebar({
         <h3 className="text-lg font-semibold mb-3">Category</h3>
         <div className="space-y-2">
           {categories.map((category) => (
-            <label key={category} className="flex items-center cursor-pointer">
+            <label key={category} htmlFor={category} className="flex items-center cursor-pointer">
               <input
                 type="radio"
+                id={category}
                 name="category"
                 value={category}
                 checked={selectedCategory === category}
-                onChange={(e) => setSelectedCategory(e.target.value)}
+                // When a radio button is clicked, update the 'category' URL param
+                onChange={(e) => handleFilterChange('category', e.target.value)}
                 className="h-4 w-4"
               />
               <span className="ml-2">{category}</span>
@@ -48,7 +58,8 @@ export default function Sidebar({
           min="0"
           max="1000"
           value={priceLimit}
-          onChange={(e) => setPriceLimit(Number(e.target.value))}
+          // When the slider is moved, update the 'price' URL param
+          onChange={(e) => handleFilterChange('price', e.target.value)}
           className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-sm mt-1">
