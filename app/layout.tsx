@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 flex flex-col min-h-screen`}>
+      <body className={`${inter.className} bg-gray-100 flex flex-col min-h-screen`}>
+        {/* // Make sure this class is present on the body tag */}
+
         <CartProvider> {/* Wrap everything inside the CartProvider */}
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">

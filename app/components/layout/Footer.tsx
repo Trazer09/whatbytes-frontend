@@ -4,18 +4,18 @@ import { Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 border-t">
-      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-        {/* Left Section */}
+    // Add bg-white and border-t
+    <footer className="bg-white border-t border-gray-200">
+      <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        {/* Left Section (re-styled from your screenshot) */}
         <div>
-          <h3 className="font-bold text-lg">Filters</h3>
           <p className="text-gray-600">&copy; 2024 American</p>
         </div>
 
         {/* Middle Section */}
         <div>
-          <h3 className="font-bold text-lg">About Us</h3>
-          <ul className="text-gray-600">
+          <h3 className="font-bold text-lg mb-2">About Us</h3>
+          <ul className="text-gray-600 space-y-1">
             <li><a href="#" className="hover:underline">About Us</a></li>
             <li><a href="#" className="hover:underline">Contact</a></li>
           </ul>
@@ -23,8 +23,8 @@ export default function Footer() {
 
         {/* Right Section */}
         <div>
-          <h3 className="font-bold text-lg">Follow Us</h3>
-          <div className="flex gap-4 mt-2">
+          <h3 className="font-bold text-lg mb-2">Follow Us</h3>
+          <div className="flex gap-4 justify-center md:justify-start">
             <a href="#" aria-label="Facebook" className="text-gray-600 hover:text-blue-600">
               <Facebook />
             </a>
