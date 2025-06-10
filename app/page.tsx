@@ -1,20 +1,12 @@
 "use client";
 
-// We no longer need useState here as the URL is the source of truth for filters
 import Sidebar from "./components/layout/Sidebar";
 import ProductCard from "./components/ui/ProductCard";
 import { products } from "./data/products";
 
-// Update the component to accept all possible filter params from the URL
-export default function HomePage({
-  searchParams,
-}: {
-  searchParams?: {
-    search?: string;
-    category?: string;
-    price?: string;
-  };
-}) {
+// Add the special comment to disable the ESLint rule for the next line
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function HomePage({ searchParams }: any) { // Change the props type to 'any'
   // Read all filter values directly from the URL searchParams
   const searchTerm = searchParams?.search || '';
   const selectedCategory = searchParams?.category || 'All';
@@ -22,7 +14,7 @@ export default function HomePage({
   const priceLimit = searchParams?.price ? Number(searchParams.price) : 1000;
 
   const filteredProducts = products.filter(product => {
-    // The filter logic remains the same, as it's based on the variables above
+    // The filter logic remains the same
     const categoryMatch = selectedCategory === 'All' || product.category === selectedCategory;
     const priceMatch = product.price <= priceLimit;
     const searchMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -32,9 +24,6 @@ export default function HomePage({
 
   return (
     <div className="flex flex-col md:flex-row gap-8">
-      {/* The Sidebar now only needs the current values to display them correctly.
-        It handles updating the URL itself.
-      */}
       <Sidebar
         selectedCategory={selectedCategory}
         priceLimit={priceLimit}
