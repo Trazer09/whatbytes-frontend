@@ -47,5 +47,5 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone git clone https://github.com/Trazer09/whatbytes-frontend.git
+   git clone https://github.com/Trazer09/whatbytes-frontend.git
    cd whatbytes-frontend
