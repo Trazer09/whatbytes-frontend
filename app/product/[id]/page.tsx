@@ -8,7 +8,7 @@ export function generateStaticParams() {
   }));
 }
 
-// The unused 'type Props' definition has been removed.
+
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function ProductDetailPage({ params }: any) {

@@ -4,9 +4,9 @@ import Sidebar from "./components/layout/Sidebar";
 import ProductCard from "./components/ui/ProductCard";
 import { products } from "./data/products";
 
-// Add the special comment to disable the ESLint rule for the next line
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function HomePage({ searchParams }: any) { // Change the props type to 'any'
+export default function HomePage({ searchParams }: any) { 
   // Read all filter values directly from the URL searchParams
   const searchTerm = searchParams?.search || '';
   const selectedCategory = searchParams?.category || 'All';
@@ -14,7 +14,7 @@ export default function HomePage({ searchParams }: any) { // Change the props ty
   const priceLimit = searchParams?.price ? Number(searchParams.price) : 1000;
 
   const filteredProducts = products.filter(product => {
-    // The filter logic remains the same
+   
     const categoryMatch = selectedCategory === 'All' || product.category === selectedCategory;
     const priceMatch = product.price <= priceLimit;
     const searchMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());

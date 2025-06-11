@@ -1,5 +1,4 @@
-"use client"; // It MUST start with "use client"
-
+"use client"; 
 import { useState } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/app/context/CartContext';

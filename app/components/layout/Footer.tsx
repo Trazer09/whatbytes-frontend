@@ -1,6 +1,6 @@
 // app/components/layout/Footer.tsx
 import React from 'react';
-import { Facebook, Instagram } from 'lucide-react';
+import { Facebook, Instagram , Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -30,6 +30,10 @@ export default function Footer() {
             </a>
             <a href="#" aria-label="Instagram" className="text-white hover:text-pink-500">
               <Instagram />
+            </a>
+
+            <a href="#" aria-label="Twitter" className="text-white hover:text-blue-100">
+              <Twitter />
             </a>
           </div>
         </div>

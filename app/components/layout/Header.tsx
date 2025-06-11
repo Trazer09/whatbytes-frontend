@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, ShoppingCart, User } from 'lucide-react'; // Import the User icon
+import { Search, ShoppingCart, User } from 'lucide-react'; 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/app/context/CartContext';
@@ -26,7 +26,7 @@ export default function Header() {
   };
 
   return (
-    // <header className="bg-white shadow-md sticky top-0 z-50">
+    
     <header className="bg-[#0858A8] shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-white">Logo</Link>
@@ -65,7 +65,7 @@ export default function Header() {
             <User className="h-6 w-6 text-gray-600" />
           </button>
         </div>
-        {/* ------------------------------------------- */}
+        
 
       </div>
     </header>

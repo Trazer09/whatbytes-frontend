@@ -1,4 +1,3 @@
-// app/data/products.ts
 export type Product = {
   id: number;
   name: string;

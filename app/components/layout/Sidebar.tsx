@@ -1,9 +1,9 @@
-"use client"; // The sidebar now needs client-side interactivity to change the URL
+"use client"; 
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 
-// The Sidebar no longer needs setter functions, just the current values
+
 interface SidebarProps {
   selectedCategory: string;
   priceLimit: number;

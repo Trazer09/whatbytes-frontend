@@ -1,4 +1,4 @@
-import { Suspense } from 'react'; // 1. Import Suspense from React
+import { Suspense } from 'react';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-gray-100 flex flex-col min-h-screen`}>
         <CartProvider>
-          {/* 2. Wrap your Header component in a Suspense boundary */}
+          
           <Suspense fallback={<header className="bg-white shadow-md h-[80px]" />}>
             <Header />
           </Suspense>
