@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# Whatbytes - Frontend E-Commerce Store
+
+This is a modern, responsive, and fully functional e-commerce store frontend built as a part of the Whatbytes frontend assignment. The application showcases a product listing page, a dynamic product detail page, and a complete, persistent shopping cart, all built with Next.js and the App Router.
+
+**[Live Demo](https://whatbytes-frontend-nine.vercel.app/)**
+
+<!-- ## Preview
+
+| Home Page | Product Detail Page |
+| :---: | :---: |
+| *[Insert a screenshot of your home page here]* | *[Insert a screenshot of a product detail page here]* |
+
+| Cart Page | Responsive (Mobile) View |
+| :---: | :---: |
+| *[Insert a screenshot of your cart page here]* | *[Insert a screenshot of the mobile view here]* | -->
+
+
+## Features
+
+- **Responsive Design**: A mobile-first approach ensuring a seamless experience on all devices (desktop, tablet, and mobile).
+- **Product Listing & Filtering**:
+    - Filter products by **Category**.
+    - Filter products by a **Price Range** slider.
+    - **Search** for products by name.
+- **URL-Based State Management**: All filters (category, price, search) are stored in the URL, making the filtered views shareable.
+- **Dynamic Product Pages**: Dynamically generated pages for each product using Next.js's App Router (`/product/[id]`).
+- **Shopping Cart**:
+    - Fully functional "Add to Cart" capability.
+    - A dedicated cart page (`/cart`) to view and manage items.
+    - Update item quantities or remove items directly from the cart.
+    - **Persistent State**: The cart's contents are saved to `localStorage`, so it persists between browser sessions.
+- **Conditional Rendering**: User-friendly messages are shown for "No products found" and "Your cart is empty".
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **State Management**: React Context API
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Trazer09/whatbytes-frontend.git](https://github.com/Trazer09/whatbytes-frontend.git)
+   cd whatbytes-frontend
